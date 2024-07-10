@@ -6,10 +6,7 @@ const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main'
 
 export default defineConfig({
 	  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
-	  branch:
-	    process.env.NEXT_PUBLIC_TINA_BRANCH! || // custom branch env override
-	    process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF! || // Vercel branch env
-	    process.env.HEAD!, // Netlify branch env
+	  branch: 'main',
 	  token: process.env.TINA_TOKEN!,
 	build: {
 		outputFolder: 'admin',
