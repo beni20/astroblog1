@@ -5,13 +5,12 @@ import { defineConfig } from 'tinacms'
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main'
 
 export default defineConfig({
-	branch:
-		    process.env.NEXT_PUBLIC_TINA_BRANCH! || // custom branch env override
-    		    process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF! || // Vercel branch env
-    	            process.env.HEAD!, // Netlify branch env,
-	clientId: '41b866a9-5f00-4f0d-af8e-edd3e139eeb0', // Get this from tina.io
-	token: '80660f6863650ca802de79770c5844247cdd35a9', // Get this from tina.io
-
+	  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
+	  branch:
+	    process.env.NEXT_PUBLIC_TINA_BRANCH! || // custom branch env override
+	    process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF! || // Vercel branch env
+	    process.env.HEAD!, // Netlify branch env
+	  token: process.env.TINA_TOKEN!,
 	build: {
 		outputFolder: 'admin',
 		publicFolder: 'public'
